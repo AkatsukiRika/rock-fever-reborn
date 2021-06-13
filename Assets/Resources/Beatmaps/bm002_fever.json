@@ -1,0 +1,41 @@
+{
+  "title": "是蘿莉控真是太好了",
+  "artist": "Takebo 3 (Cover: 東京塔子)",
+  "tempo": 160,
+  "signature": 4,
+  "level": "26",
+  "notes": [
+    { "len": 4, "pos": 0 },
+    { "len": 4, "pos": 0 },
+    { "len": 8, "pos": 0 },
+    { "len": 8, "pos": 4 },
+    { "len": 8, "pos": 5 },
+    { "len": 8, "pos": 4 },
+
+    { "len": 8, "pos": 6 },
+    { "len": 4, "pos": 5 },
+    { "len": 8, "pos": 4 },
+    { "len": 8, "pos": 5 },
+    { "len": 8, "pos": 4 },
+    { "len": 8, "pos": 5 },
+    { "len": 8, "pos": 6 },
+
+    { "len": 8, "pos": 0 },
+    { "len": 8, "pos": 6 },
+    { "len": 8, "pos": 2 },
+    { "len": 8, "pos": 6 },
+    { "len": 8, "pos": 5 },
+    { "len": 8, "pos": 3 },
+    { "len": 8, "pos": 1 },
+    { "len": 8, "pos": 4 },
+
+    { "len": 8, "pos": 7 },
+    { "len": 8, "pos": 4 },
+    { "len": 8, "pos": 0 },
+    { "len": 8, "pos": 1 },
+    { "len": 8, "pos": 4 },
+    { "len": 8, "pos": 1 },
+    { "len": 8, "pos": 4 },
+    { "len": 8, "pos": 7 }
+  ]
+}

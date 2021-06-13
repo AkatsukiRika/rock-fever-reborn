@@ -48,7 +48,11 @@ public class GameManager : MonoBehaviour
                 playbackStarted = true;
                 mapController.hasStarted = true;
 
-                audioSource.Play();
+                if (PlaySettings.latency < 0) {
+                    audioSource.PlayDelayed(-PlaySettings.latency);
+                } else {
+                    audioSource.Play();
+                }
                 percentageText.text = "0.0000 %";
                 mapReader.ReadBeatmap();
                 lyricsReader.StartPlayingLyrics();
@@ -63,12 +67,6 @@ public class GameManager : MonoBehaviour
             }
             // 若音乐播放完毕，跳转到结算场景
             if (!audioSource.isPlaying) {
-                GameResult.instance.totalScore = currentScore;
-                GameResult.instance.rate = (currentScore / maxScore) * 100;
-                SceneManager.LoadScene("ResultScene");
-            }
-            // 测试代码，请删除
-            if (Input.GetKeyDown(KeyCode.T)) {
                 GameResult.instance.totalScore = currentScore;
                 GameResult.instance.rate = (currentScore / maxScore) * 100;
                 SceneManager.LoadScene("ResultScene");

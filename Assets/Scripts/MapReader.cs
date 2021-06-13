@@ -60,7 +60,7 @@ public class MapReader : MonoBehaviour
         // 初始化音符时间列表
         timingList = new List<float>();
 
-        string jsonStr = Resources.Load<TextAsset>("Beatmaps/bm001_pro").ToString();
+        string jsonStr = Resources.Load<TextAsset>("Beatmaps/bm002_fever").ToString();
         beatmap = JsonUtility.FromJson<Beatmap>(jsonStr);
         // 设置界面上需显示的曲目相关元素
         songNameText.text = beatmap.title;
@@ -73,7 +73,7 @@ public class MapReader : MonoBehaviour
         timePerBar = timePerBeat * beatmap.signature;
         // 开始读取音符
         float currentPosY = judgeLineY;
-        float currentTiming = 0f;
+        float currentTiming = PlaySettings.latency;
         int noteCount = 0;
         foreach(var note in beatmap.notes) {
             int pos = note.pos;

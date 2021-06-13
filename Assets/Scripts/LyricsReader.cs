@@ -17,7 +17,7 @@ public class LyricsReader : MonoBehaviour
         timingList = new List<float>();
         
         // 读取LRC文件
-        string lrcStr = Resources.Load<TextAsset>("Lyrics/rc001").ToString();
+        string lrcStr = Resources.Load<TextAsset>("Lyrics/rc002").ToString();
         string[] delimiter = new string[] { "\n" };
         string[] lrcLines = lrcStr.Split(delimiter, StringSplitOptions.RemoveEmptyEntries);
         for (int i = 0; i < lrcLines.Length; i++) {

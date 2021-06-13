@@ -16,11 +16,7 @@ public class MapController : MonoBehaviour
 
     // Update is called once per frame
     void Update() {
-        if (!hasStarted) {
-            // if (Input.anyKeyDown) {
-            //     hasStarted = true;
-            // }
-        } else {
+        if (hasStarted && Time.time - GameManager.instance.timeGameStart >= PlaySettings.latency) {
             transform.position -= new Vector3(0f, beatsPerSec * Time.deltaTime * hiSpeed, 0f);
         }
     }
