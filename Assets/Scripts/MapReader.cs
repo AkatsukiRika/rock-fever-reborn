@@ -55,13 +55,15 @@ public class MapReader : MonoBehaviour
         dictNoteX.Add(6, -4.4f);
 
         // 设置hiSpeed
-        distancePerBeat = MapController.hiSpeed;
+        distancePerBeat = PlaySettings.hiSpeed;
 
         // 初始化音符时间列表
         timingList = new List<float>();
 
         string jsonStr = Resources.Load<TextAsset>("Beatmaps/bm002_fever").ToString();
         beatmap = JsonUtility.FromJson<Beatmap>(jsonStr);
+        // 设置PlaySettings
+        PlaySettings.tempo = beatmap.tempo;
         // 设置界面上需显示的曲目相关元素
         songNameText.text = beatmap.title;
         modeText1P.text = "PRO / Lv." + beatmap.level;

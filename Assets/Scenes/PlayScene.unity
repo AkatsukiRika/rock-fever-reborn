@@ -4081,7 +4081,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eee1134b8d390458fb5eb743a92aef7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tempo: 160
   beatsPerSec: 0
   hasStarted: 0
 --- !u!4 &1924965572
@@ -4332,7 +4331,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: TRACK 1/4
+  m_Text: STAGE 1
 --- !u!222 &2112783280
 CanvasRenderer:
   m_ObjectHideFlags: 0
