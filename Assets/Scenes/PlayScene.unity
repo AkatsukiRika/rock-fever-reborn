@@ -1506,6 +1506,8 @@ MonoBehaviour:
   - {fileID: 6635745401552241285, guid: 0cd67669e609742b19a6f8f8b6853da3, type: 3}
   - {fileID: 4038539709349417125, guid: 57f89578ee7c842f49de0d2928b3ff77, type: 3}
   noteHolder: {fileID: 1924965572}
+  barLine: {fileID: 1135882820586968176, guid: bdc5d255d620148fe9273336e04b70c8, type: 3}
+  barLineHolder: {fileID: 0}
   timingList: []
 --- !u!4 &682173918
 Transform:

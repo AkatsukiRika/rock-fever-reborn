@@ -4,6 +4,7 @@
   "tempo": 160,
   "signature": 4,
   "level": "26",
+  "barCount": 17,
   "notes": [
     { "len": 4, "pos": 0 },
     { "len": 4, "pos": 0 },

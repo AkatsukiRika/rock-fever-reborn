@@ -11,6 +11,7 @@ public class Beatmap {
     public int tempo;
     public int signature;
     public string level;
+    public int barCount;
     public Note[] notes;
 }
 
@@ -29,6 +30,9 @@ public class MapReader : MonoBehaviour
     public GameObject[] notes;
     public Transform noteHolder;
 
+    // 小节线
+    public GameObject barLine;
+
     // 音符正确时机相关
     public List<float> timingList;
     private float timePerBeat;
@@ -39,6 +43,7 @@ public class MapReader : MonoBehaviour
     private float distancePerBeat = 1.0f;
     private float distancePerBar;
     private float judgeLineY = -4.35f;
+    private float barLineX = -6.8f;
 
     // 整个乐谱
     private Beatmap beatmap;
@@ -64,6 +69,7 @@ public class MapReader : MonoBehaviour
         beatmap = JsonUtility.FromJson<Beatmap>(jsonStr);
         // 设置PlaySettings
         PlaySettings.tempo = beatmap.tempo;
+        PlaySettings.signature = beatmap.signature;
         // 设置界面上需显示的曲目相关元素
         songNameText.text = beatmap.title;
         modeText1P.text = "PRO / Lv." + beatmap.level;
@@ -104,8 +110,25 @@ public class MapReader : MonoBehaviour
         GameManager.instance.SetTotalNotes(noteCount);
         GameResult.instance.totalNote = noteCount;
 
+        // 生成小节线
+        GenerateBarLine();
+
         // 每5秒钟切换难度和BPM显示
         InvokeRepeating("ChangeModeText", 2, 2);
+    }
+
+    /**
+     * 根据乐曲的拍号及BPM生成小节线的方法
+     */
+    void GenerateBarLine() {
+        for (int i = 0; i < beatmap.barCount; i++) {
+            Instantiate(
+                barLine,
+                new Vector3(barLineX, i * distancePerBar + judgeLineY, 0f),
+                Quaternion.identity,
+                noteHolder
+            );
+        }
     }
 
     void ChangeModeText() {
