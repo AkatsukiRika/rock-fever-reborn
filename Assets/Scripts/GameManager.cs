@@ -36,6 +36,16 @@ public class GameManager : MonoBehaviour
     private const float COMBO_APPEAR_TIME = 0.5f;
     private float comboTimer = COMBO_APPEAR_TIME;
 
+    // 当前达成率
+    private float currentPercentage = 0f;
+
+    // 语音播放Flags
+    private bool achieved50 = false;
+    private bool achieved70 = false;
+    private bool achieved90 = false;
+    private bool achieved95 = false;
+    private bool achieved100 = false;
+
     // Start is called before the first frame update
     void Start() {
         instance = this;
@@ -71,6 +81,27 @@ public class GameManager : MonoBehaviour
                 GameResult.instance.rate = (currentScore / maxScore) * 100;
                 SceneManager.LoadScene("ResultScene");
             }
+            // 根据当前达成率播放对应语音
+            VoicePlayback();
+        }
+    }
+
+    public void VoicePlayback() {
+        if (currentPercentage > 100f && !achieved100) {
+            AudioManager.instance.PlaySound(AudioManager.AudioInfo.VOICE_ACHIEVE_100);
+            achieved100 = true;
+        } else if (currentPercentage > 95f && !achieved95) {
+            AudioManager.instance.PlaySound(AudioManager.AudioInfo.VOICE_ACHIEVE_95);
+            achieved95 = true;
+        } else if (currentPercentage > 90f && !achieved90) {
+            AudioManager.instance.PlaySound(AudioManager.AudioInfo.VOICE_ACHIEVE_90);
+            achieved90 = true;
+        } else if (currentPercentage > 70f && !achieved70) {
+            AudioManager.instance.PlaySound(AudioManager.AudioInfo.VOICE_ACHIEVE_70);
+            achieved70 = true;
+        } else if (currentPercentage > 50f && !achieved50) {
+            AudioManager.instance.PlaySound(AudioManager.AudioInfo.VOICE_ACHIEVE_50);
+            achieved50 = true;
         }
     }
 
@@ -109,7 +140,7 @@ public class GameManager : MonoBehaviour
     }
 
     private void percentageUpdate(int score) {
-        float currentPercentage = (score / maxScore) * 100;
+        currentPercentage = (score / maxScore) * 100;
         string currentStr = string.Format("{0:N4}", currentPercentage);
         percentageText.text = currentStr + " %";
     }
