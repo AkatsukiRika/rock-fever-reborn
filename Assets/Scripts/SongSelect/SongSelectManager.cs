@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SongSelectManager : MonoBehaviour {
     // 代表选中态的粉色圆圈
@@ -9,6 +10,9 @@ public class SongSelectManager : MonoBehaviour {
     public Transform[] songObjectPosArr;
     // 当前选择的是第几首乐曲（从0开始计数）
     private int curActiveSong = 0;
+    // 剩余时间
+    private float timeRemain = 99.99f;
+    public Text timeText;
 
     // Start is called before the first frame update
     void Start() {
@@ -16,6 +20,11 @@ public class SongSelectManager : MonoBehaviour {
     }
 
     void Update() {
+        // 进行倒计时
+        if (timeRemain > 0) {
+            timeRemain -= Time.deltaTime;
+            timeText.text = string.Format("{0:N2}", timeRemain);
+        }
         // 按下红色按钮1
         if (Input.GetKeyDown(KeyCode.D)) {
             moveSongCursor(-1);
