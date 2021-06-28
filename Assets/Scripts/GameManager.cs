@@ -83,6 +83,12 @@ public class GameManager : MonoBehaviour
             }
             // 根据当前达成率播放对应语音
             VoicePlayback();
+            // 按T键直接跳转到结算场景的测试代码
+            // if (Input.GetKeyDown(KeyCode.T)) {
+            //     GameResult.instance.totalScore = currentScore;
+            //     GameResult.instance.rate = (currentScore / maxScore) * 100;
+            //     SceneManager.LoadScene("ResultScene");
+            // }
         }
     }
 

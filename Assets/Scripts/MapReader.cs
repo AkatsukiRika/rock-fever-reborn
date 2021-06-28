@@ -65,7 +65,7 @@ public class MapReader : MonoBehaviour
         // 初始化音符时间列表
         timingList = new List<float>();
 
-        string jsonStr = Resources.Load<TextAsset>("Beatmaps/bm002_fever").ToString();
+        string jsonStr = Resources.Load<TextAsset>("Beatmaps/bm001_pro").ToString();
         beatmap = JsonUtility.FromJson<Beatmap>(jsonStr);
         // 设置PlaySettings
         PlaySettings.tempo = beatmap.tempo;
