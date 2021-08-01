@@ -48,6 +48,10 @@ public class MapReader : MonoBehaviour
     // 整个乐谱
     private Beatmap beatmap;
 
+    // 判定区域
+    public GameObject judgeLine1P;
+    private const float defaultColliderSizeY = 2.5f;
+
     public void ReadBeatmap() {
         // 初始化音符横坐标字典
         dictNoteX = new Dictionary<int, float>();
@@ -61,6 +65,8 @@ public class MapReader : MonoBehaviour
 
         // 设置hiSpeed
         distancePerBeat = PlaySettings.hiSpeed;
+        BoxCollider2D judgeLineCollider1P = judgeLine1P.GetComponent<BoxCollider2D>();
+        judgeLineCollider1P.size = new Vector2(1.0f, defaultColliderSizeY * PlaySettings.hiSpeed);
 
         // 初始化音符时间列表
         timingList = new List<float>();

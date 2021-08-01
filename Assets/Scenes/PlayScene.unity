@@ -1552,6 +1552,7 @@ MonoBehaviour:
   noteHolder: {fileID: 1924965572}
   barLine: {fileID: 1135882820586968176, guid: bdc5d255d620148fe9273336e04b70c8, type: 3}
   timingList: []
+  judgeLine1P: {fileID: 1921223877}
 --- !u!4 &682173918
 Transform:
   m_ObjectHideFlags: 0
@@ -4074,7 +4075,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 8}
+  m_Size: {x: 1, y: 2.5}
   m_EdgeRadius: 0
 --- !u!50 &1921223881
 Rigidbody2D:
